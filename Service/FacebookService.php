@@ -27,14 +27,14 @@ class FacebookService extends Service
      * JavaScript, you can pass in display=popup as part of the $params.
      *
      * The parameters:
-     * - req_perms: comma separated list of requested extended perms
+     * - scope: comma separated list of requested extended perms
      * - display: can be "page" (default, full page) or "popup"
      */
     public function getLoginUrl($next, $cancel, array $parameters = array())
     {
         return $this->facebook->getLoginUrl($parameters + array(
-            'next'       => $next,
-            'cancel_url' => $cancel,
+            'redirect_uri' => $next,
+            'cancel_url'   => $cancel,
         ));
     }
 
